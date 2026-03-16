@@ -78,41 +78,38 @@
     <script>
         /**
          * Transforma enlaces de Google Drive en enlaces directos de imagen.
-         * Soporta enlaces de visualización y enlaces compartidos.
          */
         function cleanDriveLink(url) {
             if (!url || url.trim() === "") return "https://via.placeholder.com/400?text=Sin+Foto";
-            // Extraer el ID del archivo de Google Drive (cadena larga de caracteres)
             const idMatch = url.match(/[-\w]{25,}/);
             if (idMatch) {
-                // Usamos el endpoint de visualización directa de Google
                 return `https://lh3.googleusercontent.com/d/${idMatch[0]}`;
             }
             return url;
         }
+
+        // Lista compartida de autorizados para Sebastián y Rafael
+        const sharedAuthorized = [
+            { name: "Héctor Aguilar", group: "2º CFGB", photo: "https://drive.google.com/file/d/1HJEKWhBzLva-oqi2cm5crQhIrhwXDmKq/view?usp=drive_link" },
+            { name: "Francisco Javier Gómez", group: "2º CFGB", photo: "https://drive.google.com/file/d/19N_v4EvC9LIhFnegKmlpVSne4CWVlA3m/view?usp=sharing" },
+            { name: "Juan Antonio Gutiérrez", group: "2º CFGB", photo: "https://drive.google.com/file/d/1aj0eYwRy8KUDnXRpxmiMBCU64PYkS-wJ/view?usp=drive_link" },
+            { name: "Francisco López", group: "2º CFGB", photo: "https://drive.google.com/file/d/1GHKB9z38G3i7Zj5CudNtsq-3jWNOtZh_/view?usp=drive_link" },
+            { name: "Samuel Millán", group: "2º CFGB", photo: "https://drive.google.com/file/d/1puC5EbYu4Hr-xslPc2wQARjrxVGIfzH0/view?usp=drive_link" },
+            { name: "Rafael Trujillo", group: "2º CFGB", photo: "https://drive.google.com/file/d/1woEY7whWCCxNjwyrVDhfoDuMrDsfR15k/view?usp=drive_link" }
+        ];
 
         const studentsData = [
             {
                 name: "Sebastián Guzmán",
                 group: "2º CFGB",
                 photo: "https://drive.google.com/file/d/18VW-kRSBxKH7kHI0h-aGSLxtqAzsgg32/view?usp=drive_link", 
-                authorized: [
-                    { name: "Héctor Aguilar", group: "2º CFGB", photo: "https://drive.google.com/file/d/1HJEKWhBzLva-oqi2cm5crQhIrhwXDmKq/view?usp=drive_link" },
-                    { name: "Francisco Javier Gómez", group: "2º CFGB", photo: "https://drive.google.com/file/d/19N_v4EvC9LIhFnegKmlpVSne4CWVlA3m/view?usp=sharing" },
-                    { name: "Juan Antonio Gutiérrez", group: "2º CFGB", photo: "https://drive.google.com/file/d/1aj0eYwRy8KUDnXRpxmiMBCU64PYkS-wJ/view?usp=drive_link" },
-                    { name: "Francisco López", group: "2º CFGB", photo: "https://drive.google.com/file/d/1GHKB9z38G3i7Zj5CudNtsq-3jWNOtZh_/view?usp=drive_link" },
-                    { name: "Samuel Millán", group: "2º CFGB", photo: "https://drive.google.com/file/d/1puC5EbYu4Hr-xslPc2wQARjrxVGIfzH0/view?usp=drive_link" },
-                    { name: "Rafael Trujillo", group: "2º CFGB", photo: "https://drive.google.com/file/d/1woEY7whWCCxNjwyrVDhfoDuMrDsfR15k/view?usp=drive_link" }
-                ]
+                authorized: sharedAuthorized
             },
             {
                 name: "Rafael Peña",
                 group: "2º CFGB",
                 photo: "https://drive.google.com/file/d/14mZYLxoikF2tdfnLyCUWAeePqwcibl9h/view?usp=drive_link", 
-                authorized: [
-                    { name: "Juan Antonio Gutiérrez", group: "2º CFGB", photo: "https://drive.google.com/file/d/1aj0eYwRy8KUDnXRpxmiMBCU64PYkS-wJ/view?usp=drive_link" },
-                    { name: "Rafael Trujillo", group: "2º CFGB", photo: "https://drive.google.com/file/d/1woEY7whWCCxNjwyrVDhfoDuMrDsfR15k/view?usp=drive_link" }
-                ]
+                authorized: sharedAuthorized
             },
             {
                 name: "José Ángel Pérez",
