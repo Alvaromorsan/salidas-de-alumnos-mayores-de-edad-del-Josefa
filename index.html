@@ -6,6 +6,7 @@
     <title>Control de Salida - IES Josefa de los Reyes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <style>
         body {
             font-family: 'Outfit', sans-serif;
@@ -33,7 +34,6 @@
 </head>
 <body class="pb-12">
 
-    <!-- Encabezado -->
     <header class="p-8 text-center">
         <div class="inline-block bg-white px-8 py-5 rounded-[2.5rem] shadow-xl happy-shadow border border-blue-50">
             <h1 class="text-2xl font-extrabold text-blue-900 tracking-tight leading-none mb-1">IES Josefa de los Reyes</h1>
@@ -53,7 +53,6 @@
         </div>
     </main>
 
-    <!-- Modal de Detalles -->
     <div id="modalDetails" class="fixed inset-0 modal-overlay hidden z-20 flex items-center justify-center p-4">
         <div class="w-full max-w-md max-h-screen overflow-y-auto no-scrollbar flex flex-col items-center">
             
@@ -88,61 +87,38 @@
             return url;
         }
 
-        // Lista compartida de autorizados para Sebastián y Rafael
-        const sharedAuthorized = [
-            { name: "Héctor Aguilar", group: "2º CFGB", photo: "https://drive.google.com/file/d/1HJEKWhBzLva-oqi2cm5crQhIrhwXDmKq/view?usp=drive_link" },
-            { name: "Francisco Javier Gómez", group: "2º CFGB", photo: "https://drive.google.com/file/d/19N_v4EvC9LIhFnegKmlpVSne4CWVlA3m/view?usp=sharing" },
-            { name: "Juan Antonio Gutiérrez", group: "2º CFGB", photo: "https://drive.google.com/file/d/1aj0eYwRy8KUDnXRpxmiMBCU64PYkS-wJ/view?usp=drive_link" },
-            { name: "Francisco López", group: "2º CFGB", photo: "https://drive.google.com/file/d/1GHKB9z38G3i7Zj5CudNtsq-3jWNOtZh_/view?usp=drive_link" },
-            { name: "Samuel Millán", group: "2º CFGB", photo: "https://drive.google.com/file/d/1puC5EbYu4Hr-xslPc2wQARjrxVGIfzH0/view?usp=drive_link" },
-            { name: "Rafael Trujillo", group: "2º CFGB", photo: "https://drive.google.com/file/d/1woEY7whWCCxNjwyrVDhfoDuMrDsfR15k/view?usp=drive_link" }
-        ];
-
         const studentsData = [
             {
-                name: "Sebastián Guzmán",
-                group: "2º CFGB",
-                photo: "https://drive.google.com/file/d/18VW-kRSBxKH7kHI0h-aGSLxtqAzsgg32/view?usp=drive_link", 
-                authorized: sharedAuthorized
-            },
-            {
-                name: "Rafael Peña",
-                group: "2º CFGB",
-                photo: "https://drive.google.com/file/d/14mZYLxoikF2tdfnLyCUWAeePqwcibl9h/view?usp=drive_link", 
-                authorized: sharedAuthorized
-            },
-            {
                 name: "José Ángel Pérez",
-                group: "1º CFGB",
-                photo: "https://drive.google.com/file/d/1UrmJBQ-ndJgcMs3QWwzf5WO2C0ajJIoP/view?usp=drive_link", 
+                group: "2º CFGB",
+                photo: "https://drive.google.com/file/d/1UrmJBQ-ndJgcMs3QWwzf5WO2C0ajJIoP/view?usp=sharing", 
                 authorized: [
-                    { name: "José Ignacio Encinas", group: "1º CFGB", photo: "https://drive.google.com/file/d/1p0P8NNgcaLLlUxaKwaH_NjvIsC3PM1A0/view?usp=drive_link" },
-                    { name: "Pablo Gómez", group: "1º CFGB", photo: "https://drive.google.com/file/d/1-E6m02fk-49vbUKbi8Bn80tYlPWkCkOs/view?usp=drive_link" }
+                    { 
+                        name: "Antonio Manuel Cárdenas", 
+                        group: "2º CFGB", 
+                        photo: "https://drive.google.com/file/d/1IEDcykWT0QmpSqLQENavNVmleOsaj1A2/view?usp=sharing" 
+                    },
+                    { 
+                        name: "Daniel Corrales", 
+                        group: "2º CFGB", 
+                        photo: "https://drive.google.com/file/d/1aID0EJnYN1qdqTwZddEj-OxfKEeWWyPz/view?usp=sharing" 
+                    },
+                    { 
+                        name: "Yeray de la Calle", 
+                        group: "2º CFGB", 
+                        photo: "https://drive.google.com/file/d/18o-y9Z6zNiODFo6dyVB7Uj1xH-GxOl2U/view?usp=sharing" 
+                    },
+                    { 
+                        name: "Ignacio Encinas", 
+                        group: "2º CFGB", 
+                        photo: "https://drive.google.com/file/d/1p0P8NNgcaLLlUxaKwaH_NjvIsC3PM1A0/view?usp=sharing" 
+                    },
+                    { 
+                        name: "Pablo Gómez", 
+                        group: "2º CFGB", 
+                        photo: "https://drive.google.com/file/d/1-E6m02fk-49vbUKbi8Bn80tYlPWkCkOs/view?usp=sharing" 
+                    }
                 ] 
-            },
-            {
-                name: "Óscar Silva",
-                group: "1º CFGB",
-                photo: "https://drive.google.com/file/d/1GtLZLmLlq6_GYuwCHHhurPXY6cr9mwsq/view?usp=drive_link", 
-                authorized: [] 
-            },
-            {
-                name: "Lucía Ardila",
-                group: "4º A",
-                photo: "https://drive.google.com/file/d/1mWQmskB3MP_ky0MBKQFG3ki4vHY9xoJT/view?usp=drive_link", 
-                authorized: [] 
-            },
-            {
-                name: "Luisa Casal",
-                group: "4º A",
-                photo: "https://drive.google.com/file/d/1a0P1ehJWjbz31HlqTdf3RP5jaT4XRxbv/view?usp=drive_link", 
-                authorized: [] 
-            },
-            {
-                name: "Yolanda Flores",
-                group: "4º A",
-                photo: "https://drive.google.com/file/d/1t5rieKN2l3yGPFDIB4mxm35rxTLXw6JZ/view?usp=drive_link", 
-                authorized: [] 
             }
         ];
 
@@ -217,6 +193,7 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Renderizar en pantalla
         renderGrid();
     </script>
 </body>
