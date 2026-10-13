@@ -52,9 +52,9 @@
             <!-- Cargado por JavaScript -->
         </div>
     </main>
-
+    <!-- Modal de Detalles -->
     <div id="modalDetails" class="fixed inset-0 modal-overlay hidden z-20 flex items-center justify-center p-4">
-        <div class="w-full max-w-md max-h-screen overflow-y-auto no-scrollbar flex flex-col items-center">
+        <div class="w-full max-w-lg max-h-screen overflow-y-auto no-scrollbar flex flex-col items-center">
             
             <button onclick="closeModal()" class="mb-4 bg-white border-2 border-slate-100 text-slate-400 rounded-full p-4 shadow-xl active:scale-90 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -193,20 +193,24 @@
                 `;
                 content.appendChild(solo);
             } else {
+                const gridContainer = document.createElement('div');
+                gridContainer.className = "grid grid-cols-2 gap-3 mx-1";
+
                 student.authorized.forEach(minor => {
                     const minorDiv = document.createElement('div');
-                    minorDiv.className = "bg-white p-4 rounded-[3.5rem] shadow-xl border border-blue-50 mx-1";
+                    minorDiv.className = "bg-white p-3 rounded-[2.5rem] shadow-lg border border-blue-50 flex flex-col items-center text-center";
                     minorDiv.innerHTML = `
-                        <div class="aspect-square w-full mb-4 relative">
-                            <img src="${cleanDriveLink(minor.photo)}" class="w-full h-full object-cover rounded-[3rem] bg-slate-50 shadow-inner" onerror="this.src='https://via.placeholder.com/400?text=Error+Foto'">
+                        <div class="aspect-square w-full mb-2 relative">
+                            <img src="${cleanDriveLink(minor.photo)}" class="w-full h-full object-cover rounded-[2rem] bg-slate-50 shadow-inner" onerror="this.src='https://via.placeholder.com/400?text=Error+Foto'">
                         </div>
-                        <div class="text-center pb-4">
-                            <p class="font-black text-2xl text-slate-800 mb-1">${minor.name}</p>
-                            <p class="text-lg font-bold text-blue-500 bg-blue-50 inline-block px-6 py-1 rounded-full">${minor.group}</p>
+                        <div class="text-center pb-2 w-full">
+                            <p class="font-bold text-slate-800 text-sm leading-tight mb-1">${minor.name}</p>
+                            <p class="text-[10px] font-extrabold text-blue-500 bg-blue-50 inline-block px-3 py-1 rounded-full uppercase tracking-tighter">${minor.group}</p>
                         </div>
                     `;
-                    content.appendChild(minorDiv);
+                    gridContainer.appendChild(minorDiv);
                 });
+                content.appendChild(gridContainer);
             }
 
             document.getElementById('modalDetails').classList.remove('hidden');
@@ -218,7 +222,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Renderizar en pantalla
         renderGrid();
     </script>
 </body>
