@@ -48,7 +48,7 @@
         </div>
 
         <!-- Rejilla de Alumnos Mayores -->
-        <div id="gridStudents" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
+        <div id="gridStudents" class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
             <!-- Cargado por JavaScript -->
         </div>
     </main>
@@ -129,11 +129,6 @@
                         photo: "https://drive.google.com/file/d/1b6SoAjK7IdIz170sUG6CeI7XnyL2wE0A/view?usp=sharing" 
                     },
                     { 
-                        name: "Naiara Suárez", 
-                        group: "2º CFGB", 
-                        photo: "https://drive.google.com/file/d/1rgdEjD2TxHAH8aU9wkvDXE7EPcnd8sDw/view?usp=sharing" 
-                    },
-                    { 
                         name: "Francisco José López", 
                         group: "1º CFGB", 
                         photo: "https://drive.google.com/file/d/1KRMydBnpM5yh8IxKvIgxfcdpi0Tu7-SM/view?usp=sharing" 
@@ -144,6 +139,12 @@
                         photo: "https://drive.google.com/file/d/1WUTjgeH3zu2yiYYNsA40jT5PkYWjjNH-/view?usp=sharing" 
                     }
                 ] 
+            },
+            {
+                name: "Naiara Suárez",
+                group: "2º CFGB",
+                photo: "https://drive.google.com/file/d/1rgdEjD2TxHAH8aU9wkvDXE7EPcnd8sDw/view?usp=sharing",
+                authorized: []
             }
         ];
 
@@ -153,7 +154,7 @@
             
             studentsData.forEach(student => {
                 const card = document.createElement('div');
-                card.className = "student-card bg-white p-3 rounded-[2.5rem] shadow-xl border-2 border-white cursor-pointer";
+                card.className = "student-card bg-white p-3 rounded-[2.5rem] shadow-xl border-2 border-white cursor-pointer w-[calc(50%-0.75rem)] sm:w-56 md:w-60";
                 card.innerHTML = `
                     <div class="aspect-square w-full relative mb-3">
                         <img src="${cleanDriveLink(student.photo)}" class="absolute inset-0 w-full h-full object-cover rounded-[2rem] bg-slate-100" onerror="this.src='https://via.placeholder.com/400?text=Error+Foto'">
@@ -194,11 +195,11 @@
                 content.appendChild(solo);
             } else {
                 const gridContainer = document.createElement('div');
-                gridContainer.className = "grid grid-cols-2 gap-3 mx-1";
+                gridContainer.className = "flex flex-wrap justify-center gap-3 mx-1";
 
                 student.authorized.forEach(minor => {
                     const minorDiv = document.createElement('div');
-                    minorDiv.className = "bg-white p-3 rounded-[2.5rem] shadow-lg border border-blue-50 flex flex-col items-center text-center";
+                    minorDiv.className = "bg-white p-3 rounded-[2.5rem] shadow-lg border border-blue-50 flex flex-col items-center text-center w-[calc(50%-0.375rem)]";
                     minorDiv.innerHTML = `
                         <div class="aspect-square w-full mb-2 relative">
                             <img src="${cleanDriveLink(minor.photo)}" class="w-full h-full object-cover rounded-[2rem] bg-slate-50 shadow-inner" onerror="this.src='https://via.placeholder.com/400?text=Error+Foto'">
